@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)https://crazymaker.com.tw/arduino-how-to-use-relay/ -->
+<html dir="ltr" lang="zh-TW" prefix="og: https://ogp.me/ns#"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+<title>繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西! | 瘋狂創客</title>
+
+		<!-- All in One SEO 4.7.3 - aioseo.com -->
+		<meta name="description" content="本文章會說明繼電器的工作原理，以及如何搭配Arduino來控制微型水泵做示範，理解原理後可以控制更多不同電器或電路，來創造更有意思的作品。">
+		<meta name="robots" content="max-image-preview:large">
+		<link rel="canonical" href="https://crazymaker.com.tw/arduino-how-to-use-relay/">
+		<meta name="generator" content="All in One SEO (AIOSEO) 4.7.3">
+		<meta property="og:locale" content="zh_TW">
+		<meta property="og:site_name" content="瘋狂創客 | 一個有關arudino教學，分享動手製作快樂，做中學，學中做。">
+		<meta property="og:type" content="article">
+		<meta property="og:title" content="繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西! | 瘋狂創客">
+		<meta property="og:description" content="本文章會說明繼電器的工作原理，以及如何搭配Arduino來控制小水泵做示範，理解原理後可以控制更多不同電器或電路，來創造更有意思的作品。">
+		<meta property="og:url" content="https://crazymaker.com.tw/arduino-how-to-use-relay/">
+		<meta property="og:image" content="https://crazymaker.com.tw/wp-content/uploads/2021/04/arduino繼電器精選圖片.jpg">
+		<meta property="og:image:secure_url" content="https://crazymaker.com.tw/wp-content/uploads/2021/04/arduino繼電器精選圖片.jpg">
+		<meta property="og:image:width" content="912">
+		<meta property="og:image:height" content="684">
+		<meta property="article:published_time" content="2021-04-19T15:16:40+00:00">
+		<meta property="article:modified_time" content="2021-08-19T13:50:03+00:00">
+		<meta name="twitter:card" content="summary">
+		<meta name="twitter:title" content="繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西! | 瘋狂創客">
+		<meta name="twitter:description" content="本文章會說明繼電器的工作原理，以及如何搭配Arduino來控制小水泵做示範，理解原理後可以控制更多不同電器或電路，來創造更有意思的作品。">
+		<meta name="twitter:image" content="https://crazymaker.com.tw/wp-content/uploads/2021/04/arduino繼電器精選圖片.jpg">
+		<script src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/f(7).txt"></script><script type="text/javascript" async="" defer="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/tracker.bundle.js.下載"></script><script src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/f(8).txt"></script><script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"Article","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#article","name":"\u7e7c\u96fb\u5668\u600e\u9ebc\u7528? \u5b83\u8b93Arduino\u53ef\u4ee5\u63a7\u5236\u66f4\u591a\u597d\u73a9\u7684\u6771\u897f! | \u760b\u72c2\u5275\u5ba2","headline":"\u7e7c\u96fb\u5668\u600e\u9ebc\u7528? \u5b83\u8b93Arduino\u53ef\u4ee5\u63a7\u5236\u66f4\u591a\u597d\u73a9\u7684\u6771\u897f!","author":{"@id":"https:\/\/crazymaker.com.tw\/author\/po-ting\/#author"},"publisher":{"@id":"https:\/\/crazymaker.com.tw\/#organization"},"image":{"@type":"ImageObject","url":"https:\/\/crazymaker.com.tw\/wp-content\/uploads\/2021\/04\/arduino\u7e7c\u96fb\u5668\u7cbe\u9078\u5716\u7247.jpg","width":912,"height":684,"caption":"arduino\u7e7c\u96fb\u5668\u7cbe\u9078\u5716\u7247"},"datePublished":"2021-04-19T23:16:40+08:00","dateModified":"2021-08-19T21:50:03+08:00","inLanguage":"zh-TW","commentCount":7,"mainEntityOfPage":{"@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#webpage"},"isPartOf":{"@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#webpage"},"articleSection":"arduino\u6559\u5b78"},{"@type":"BreadcrumbList","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/crazymaker.com.tw\/#listItem","position":1,"name":"\u4e3b\u9801","item":"https:\/\/crazymaker.com.tw\/","nextItem":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#listItem"},{"@type":"ListItem","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#listItem","position":2,"name":"\u7e7c\u96fb\u5668\u600e\u9ebc\u7528? \u5b83\u8b93Arduino\u53ef\u4ee5\u63a7\u5236\u66f4\u591a\u597d\u73a9\u7684\u6771\u897f!","previousItem":"https:\/\/crazymaker.com.tw\/#listItem"}]},{"@type":"Organization","@id":"https:\/\/crazymaker.com.tw\/#organization","name":"\u760b\u72c2\u5275\u5ba2","description":"\u4e00\u500b\u6709\u95dcarudino\u6559\u5b78\uff0c\u5206\u4eab\u52d5\u624b\u88fd\u4f5c\u5feb\u6a02\uff0c\u505a\u4e2d\u5b78\uff0c\u5b78\u4e2d\u505a\u3002","url":"https:\/\/crazymaker.com.tw\/","logo":{"@type":"ImageObject","url":"https:\/\/crazymaker.com.tw\/wp-content\/uploads\/2021\/04\/logo2.png","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#organizationLogo","width":177,"height":168},"image":{"@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#organizationLogo"}},{"@type":"Person","@id":"https:\/\/crazymaker.com.tw\/author\/po-ting\/#author","url":"https:\/\/crazymaker.com.tw\/author\/po-ting\/","name":"Derek Wu","image":{"@type":"ImageObject","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#authorImage","url":"https:\/\/secure.gravatar.com\/avatar\/e6905584ab9a20df9eb68bd6d7f82039?s=96&d=mm&r=g","width":96,"height":96,"caption":"Derek Wu"}},{"@type":"WebPage","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#webpage","url":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/","name":"\u7e7c\u96fb\u5668\u600e\u9ebc\u7528? \u5b83\u8b93Arduino\u53ef\u4ee5\u63a7\u5236\u66f4\u591a\u597d\u73a9\u7684\u6771\u897f! | \u760b\u72c2\u5275\u5ba2","description":"\u672c\u6587\u7ae0\u6703\u8aaa\u660e\u7e7c\u96fb\u5668\u7684\u5de5\u4f5c\u539f\u7406\uff0c\u4ee5\u53ca\u5982\u4f55\u642d\u914dArduino\u4f86\u63a7\u5236\u5fae\u578b\u6c34\u6cf5\u505a\u793a\u7bc4\uff0c\u7406\u89e3\u539f\u7406\u5f8c\u53ef\u4ee5\u63a7\u5236\u66f4\u591a\u4e0d\u540c\u96fb\u5668\u6216\u96fb\u8def\uff0c\u4f86\u5275\u9020\u66f4\u6709\u610f\u601d\u7684\u4f5c\u54c1\u3002","inLanguage":"zh-TW","isPartOf":{"@id":"https:\/\/crazymaker.com.tw\/#website"},"breadcrumb":{"@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#breadcrumblist"},"author":{"@id":"https:\/\/crazymaker.com.tw\/author\/po-ting\/#author"},"creator":{"@id":"https:\/\/crazymaker.com.tw\/author\/po-ting\/#author"},"image":{"@type":"ImageObject","url":"https:\/\/crazymaker.com.tw\/wp-content\/uploads\/2021\/04\/arduino\u7e7c\u96fb\u5668\u7cbe\u9078\u5716\u7247.jpg","@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#mainImage","width":912,"height":684,"caption":"arduino\u7e7c\u96fb\u5668\u7cbe\u9078\u5716\u7247"},"primaryImageOfPage":{"@id":"https:\/\/crazymaker.com.tw\/arduino-how-to-use-relay\/#mainImage"},"datePublished":"2021-04-19T23:16:40+08:00","dateModified":"2021-08-19T21:50:03+08:00"},{"@type":"WebSite","@id":"https:\/\/crazymaker.com.tw\/#website","url":"https:\/\/crazymaker.com.tw\/","name":"\u760b\u72c2\u5275\u5ba2","description":"\u4e00\u500b\u6709\u95dcarudino\u6559\u5b78\uff0c\u5206\u4eab\u52d5\u624b\u88fd\u4f5c\u5feb\u6a02\uff0c\u505a\u4e2d\u5b78\uff0c\u5b78\u4e2d\u505a\u3002","inLanguage":"zh-TW","publisher":{"@id":"https:\/\/crazymaker.com.tw\/#organization"}}]}
+		</script>
+		<!-- All in One SEO -->
+
+<link rel="dns-prefetch" href="https://www.googletagmanager.com/">
+<link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+<link rel="dns-prefetch" href="https://pagead2.googlesyndication.com/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《瘋狂創客》» 資訊提供" href="https://crazymaker.com.tw/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《瘋狂創客》» 留言的資訊提供" href="https://crazymaker.com.tw/comments/feed/">
+<link rel="alternate" type="application/rss+xml" title="訂閱《瘋狂創客 》»〈繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西!〉留言的資訊提供" href="https://crazymaker.com.tw/arduino-how-to-use-relay/feed/">
+<script type="text/javascript">
+/* <![CDATA[ */
+window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/14.0.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/crazymaker.com.tw\/wp-includes\/js\/wp-emoji-release.min.js?ver=6.4.5"}};
+/*! This file is auto-generated */
+!function(i,n){var o,s,e;function c(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function p(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data),r=(e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0),new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data));return t.every(function(e,t){return e===r[t]})}function u(e,t,n){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\uddfa\ud83c\uddf3","\ud83c\uddfa\u200b\ud83c\uddf3")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!n(e,"\ud83e\udef1\ud83c\udffb\u200d\ud83e\udef2\ud83c\udfff","\ud83e\udef1\ud83c\udffb\u200b\ud83e\udef2\ud83c\udfff")}return!1}function f(e,t,n){var r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):i.createElement("canvas"),a=r.getContext("2d",{willReadFrequently:!0}),o=(a.textBaseline="top",a.font="600 32px Arial",{});return e.forEach(function(e){o[e]=t(a,e,n)}),o}function t(e){var t=i.createElement("script");t.src=e,t.defer=!0,i.head.appendChild(t)}"undefined"!=typeof Promise&&(o="wpEmojiSettingsSupports",s=["flag","emoji"],n.supports={everything:!0,everythingExceptFlag:!0},e=new Promise(function(e){i.addEventListener("DOMContentLoaded",e,{once:!0})}),new Promise(function(t){var n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),p.toString()].join(",")+"));",r=new Blob([e],{type:"text/javascript"}),a=new Worker(URL.createObjectURL(r),{name:"wpTestEmojiSupports"});return void(a.onmessage=function(e){c(n=e.data),a.terminate(),t(n)})}catch(e){}c(n=f(s,u,p))}t(n)}).then(function(e){for(var t in e)n.supports[t]=e[t],n.supports.everything=n.supports.everything&&n.supports[t],"flag"!==t&&(n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&n.supports[t]);n.supports.everythingExceptFlag=n.supports.everythingExceptFlag&&!n.supports.flag,n.DOMReady=!1,n.readyCallback=function(){n.DOMReady=!0}}).then(function(){return e}).then(function(){var e;n.supports.everything||(n.readyCallback(),(e=n.source||{}).concatemoji?t(e.concatemoji):e.wpemoji&&e.twemoji&&(t(e.twemoji),t(e.wpemoji)))}))}((window,document),window._wpemojiSettings);
+/* ]]> */
+</script>
+<style id="wp-emoji-styles-inline-css" type="text/css">
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+</style>
+<link rel="stylesheet" id="wp-block-library-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/style.min.css" type="text/css" media="all">
+<style id="wp-block-library-theme-inline-css" type="text/css">
+.wp-block-audio figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio figcaption{color:hsla(0,0%,100%,.65)}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed figcaption{color:hsla(0,0%,100%,.65)}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:hsla(0,0%,100%,.65)}.wp-block-image figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-image figcaption{color:hsla(0,0%,100%,.65)}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote.has-text-align-right{border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote.has-text-align-center{border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote.is-style-plain{border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video figcaption{color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video figcaption{color:hsla(0,0%,100%,.65)}.wp-block-video{margin:0 0 1em}.wp-block-template-part.has-background{margin-bottom:0;margin-top:0;padding:1.25em 2.375em}
+</style>
+<link rel="stylesheet" id="editorskit-frontend-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/style.build.css" type="text/css" media="all">
+<style id="classic-theme-styles-inline-css" type="text/css">
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+</style>
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-flow > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;margin-inline-start: 0;margin-inline-end: 2em;}body .is-layout-constrained > .alignright{float: right;margin-inline-start: 2em;margin-inline-end: 0;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}body .is-layout-grid{display: grid;}body .is-layout-grid > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+</style>
+<link rel="stylesheet" id="contact-form-7-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="ez-toc-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/screen.min.css" type="text/css" media="all">
+<style id="ez-toc-inline-css" type="text/css">
+div#ez-toc-container .ez-toc-title {font-size: 120%;}div#ez-toc-container .ez-toc-title {font-weight: 500;}div#ez-toc-container ul li {font-size: 95%;}div#ez-toc-container ul li {font-weight: 500;}div#ez-toc-container nav ul ul li {font-size: 90%;}
+.ez-toc-container-direction {direction: ltr;}.ez-toc-counter ul{counter-reset: item ;}.ez-toc-counter nav ul li a::before {content: counters(item, '.', decimal) '. ';display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left; }.ez-toc-widget-direction {direction: ltr;}.ez-toc-widget-container ul{counter-reset: item ;}.ez-toc-widget-container nav ul li a::before {content: counters(item, '.', decimal) '. ';display: inline-block;counter-increment: item;flex-grow: 0;flex-shrink: 0;margin-right: .2em; float: left; }
+</style>
+<link rel="stylesheet" id="onepress-fonts-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/css(1)" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-animate-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/animate.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/all.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-fa-shims-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/v4-shims.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-bootstrap-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/bootstrap.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="onepress-style-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/style.css" type="text/css" media="all">
+<style id="onepress-style-inline-css" type="text/css">
+#main .video-section section.hero-slideshow-wrapper{background:transparent}.hero-slideshow-wrapper:after{position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:rgba(0,0,0,0.3);display:block;content:""}#parallax-hero .jarallax-container .parallax-bg:before{background-color:rgba(0,0,0,0.3)}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}#parallax-hero>.parallax-bg::before{background-color:rgba(0,0,0,0.3);opacity:1}.body-desktop .parallax-hero .hero-slideshow-wrapper:after{display:none!important}a,.screen-reader-text:hover,.screen-reader-text:active,.screen-reader-text:focus,.header-social a,.onepress-menu a:hover,.onepress-menu ul li a:hover,.onepress-menu li.onepress-current-item>a,.onepress-menu ul li.current-menu-item>a,.onepress-menu>li a.menu-actived,.onepress-menu.onepress-menu-mobile li.onepress-current-item>a,.site-footer a,.site-footer .footer-social a:hover,.site-footer .btt a:hover,.highlight,#comments .comment .comment-wrapper .comment-meta .comment-time:hover,#comments .comment .comment-wrapper .comment-meta .comment-reply-link:hover,#comments .comment .comment-wrapper .comment-meta .comment-edit-link:hover,.btn-theme-primary-outline,.sidebar .widget a:hover,.section-services .service-item .service-image i,.counter_item .counter__number,.team-member .member-thumb .member-profile a:hover,.icon-background-default{color:#03c4eb}input[type="reset"],input[type="submit"],input[type="submit"],input[type="reset"]:hover,input[type="submit"]:hover,input[type="submit"]:hover .nav-links a:hover,.btn-theme-primary,.btn-theme-primary-outline:hover,.section-testimonials .card-theme-primary,.woocommerce #respond input#submit,.woocommerce a.button,.woocommerce button.button,.woocommerce input.button,.woocommerce button.button.alt,.pirate-forms-submit-button,.pirate-forms-submit-button:hover,input[type="reset"],input[type="submit"],input[type="submit"],.pirate-forms-submit-button,.contact-form div.wpforms-container-full .wpforms-form .wpforms-submit,.contact-form div.wpforms-container-full .wpforms-form .wpforms-submit:hover,.nav-links a:hover,.nav-links a.current,.nav-links .page-numbers:hover,.nav-links .page-numbers.current{background:#03c4eb}.btn-theme-primary-outline,.btn-theme-primary-outline:hover,.pricing__item:hover,.section-testimonials .card-theme-primary,.entry-content blockquote{border-color:#03c4eb}.feature-item:hover .icon-background-default{color:#000000}#footer-widgets{}.gallery-carousel .g-item{padding:0px 10px}.gallery-carousel-wrap{margin-left:-10px;margin-right:-10px}.gallery-grid .g-item,.gallery-masonry .g-item .inner{padding:10px}.gallery-grid-wrap,.gallery-masonry-wrap{margin-left:-10px;margin-right:-10px}.gallery-justified-wrap{margin-left:-20px;margin-right:-20px}
+</style>
+<link rel="stylesheet" id="onepress-gallery-lightgallery-css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/lightgallery.css" type="text/css" media="all">
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/jquery.min.js.下載" id="jquery-core-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/jquery-migrate.min.js.下載" id="jquery-migrate-js"></script>
+<script type="text/javascript" id="jquery-js-after">
+/* <![CDATA[ */
+jQuery(document).ready(function() {
+	jQuery(".3277da5c762aaaec43c026d4e6995e8a").click(function() {
+		jQuery.post(
+			"https://crazymaker.com.tw/wp-admin/admin-ajax.php", {
+				"action": "quick_adsense_onpost_ad_click",
+				"quick_adsense_onpost_ad_index": jQuery(this).attr("data-index"),
+				"quick_adsense_nonce": "46f38520ac",
+			}, function(response) { }
+		);
+	});
+});
+/* ]]> */
+</script>
+
+<!-- Google tag (gtag.js) snippet added by Site Kit -->
+
+<!-- Google Analytics snippet added by Site Kit -->
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/js" id="google_gtagjs-js" async=""></script>
+<script type="text/javascript" id="google_gtagjs-js-after">
+/* <![CDATA[ */
+window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+gtag("set","linker",{"domains":["crazymaker.com.tw"]});
+gtag("js", new Date());
+gtag("set", "developer_id.dZTNiMT", true);
+gtag("config", "G-6V85E4L76B");
+/* ]]> */
+</script>
+
+<!-- End Google tag (gtag.js) snippet added by Site Kit -->
+<link rel="https://api.w.org/" href="https://crazymaker.com.tw/wp-json/"><link rel="alternate" type="application/json" href="https://crazymaker.com.tw/wp-json/wp/v2/posts/1207"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://crazymaker.com.tw/xmlrpc.php?rsd">
+<meta name="generator" content="WordPress 6.4.5">
+<link rel="shortlink" href="https://crazymaker.com.tw/?p=1207">
+<link rel="alternate" type="application/json+oembed" href="https://crazymaker.com.tw/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcrazymaker.com.tw%2Farduino-how-to-use-relay%2F">
+<link rel="alternate" type="text/xml+oembed" href="https://crazymaker.com.tw/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fcrazymaker.com.tw%2Farduino-how-to-use-relay%2F&amp;format=xml">
+<meta name="generator" content="Site Kit by Google 1.137.0"><script data-ad-client="ca-pub-2649175538865325" async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/f(9).txt" data-checked-head="true"></script><link rel="pingback" href="https://crazymaker.com.tw/xmlrpc.php">
+<!-- Google AdSense meta tags added by Site Kit -->
+<meta name="google-adsense-platform-account" content="ca-host-pub-2644536267352236">
+<meta name="google-adsense-platform-domain" content="sitekit.withgoogle.com">
+<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><!-- End Google AdSense meta tags added by Site Kit -->
+
+<!-- Google AdSense snippet added by Site Kit -->
+<script type="text/javascript" async="async" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/f(10).txt" crossorigin="anonymous" data-checked-head="true"></script>
+
+<!-- End Google AdSense snippet added by Site Kit -->
+<link rel="preload" as="style" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/prettify.css"><link rel="icon" href="https://crazymaker.com.tw/wp-content/uploads/2021/04/cropped-logo2-32x32.png" sizes="32x32">
+<link rel="icon" href="https://crazymaker.com.tw/wp-content/uploads/2021/04/cropped-logo2-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="https://crazymaker.com.tw/wp-content/uploads/2021/04/cropped-logo2-180x180.png">
+<meta name="msapplication-TileImage" content="https://crazymaker.com.tw/wp-content/uploads/2021/04/cropped-logo2-270x270.png">
+		<style type="text/css" id="wp-custom-css">
+			.entry-content h2
+{
+/* 背景顏色 #eeeeee */
+background-color:#eeeeee;
+/*左側框線寬度(5px)、solid(實線)、顏色(orange)*/
+border-left:5px solid orange; 
+/*行內文字間距(5px)*/
+padding:5px;
+/*垂直置中*/
+}
+body, button, input, select, textarea {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  color: #000000;
+}
+.site-header {
+    line-height: 50px;
+    position: relative;
+    width: 100%;
+    background: #ffffff;
+    z-index: 1000;
+    -webkit-transition: all 1s ease-out;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+    box-shadow: 0 5px 10px 0 rgb(50 50 50 / 6%);
+}
+.site-branding .no-logo-img.has-desc .site-description, .site-branding .has-logo-img .site-description {
+    font-size: 12px;
+    line-height: 14px;
+    margin-bottom: 10;
+    position: relative;
+    top: -10px;
+    color: #000000;
+}
+
+
+		</style>
+		<meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><link rel="stylesheet" type="text/css" href="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/prettify.css"><script src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/wp-emoji-release.min.js.下載" defer=""></script><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style><script async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/ca-pub-2649175538865325"></script><script async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/AGSKWxXNSx0vHRNhavrkYtDL8c9CxJuHd5fcr1UvGioevQ_JcRqguITX7SJSzdoN7l5BVmD2iB1Tt9l50VyJdzxadX7_EoIfxAmzlt-MlKjOOq9_Gt6hTwBW4iDbKhbmYE9kAWXkLRG1-A=="></script><script async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/AGSKWxUAAaFHtXqdbL19eTgnL2JHG93hSQl4Pib9PippTkdynskcrmafqbPh6Gk-GnjZhaUsOB3SgVIa1FpR-rgW7Gox0VSRmCRUSkk6lUclu2_i4B9o_1A8rTy1QwssynlIX2UUlTKIYw=="></script><script async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/AGSKWxUPknrIrAoQupKK0P4GRIp5hRZij-SNoC-kZn1J94yK9KiwlQJt1gr9ISc4LGR18fYUYoSD2HjsawSV-c6ygD2WFLS8aVwJJzFe00F5DSlh2_AFBbwWR3sGfabrHeEauMfkKvPjMQ=="></script></head>
+
+<body class="post-template-default single single-post postid-1207 single-format-standard wp-custom-logo body-desktop" aria-hidden="false" style="padding: 0px 0px 154px;">
+<div id="page" class="hfeed site" style="height: auto !important;">
+	<a class="skip-link screen-reader-text" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#content">跳至主要內容</a>
+	<div id="header-section" class="h-on-top no-transparent">		<div class="followWrap" style="height: 75px;"><header id="masthead" class="site-header header-contained is-sticky no-scroll no-t h-on-top header-fixed" role="banner" style="top: 0px;">
+			<div class="container">
+				<div class="site-branding">
+				<div class="site-brand-inner has-logo-img no-desc"><div class="site-logo-div"><a href="https://crazymaker.com.tw/" class="custom-logo-link  no-t-logo" rel="home"><img width="160" height="62" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/cropped-logo.jpg" class="custom-logo" alt="瘋狂創客"></a></div></div>				</div>
+				<div class="header-right-wrapper">
+					<a href="https://crazymaker.com.tw/arduino-how-to-use-relay/#0" id="nav-toggle">選單<span></span></a>
+					<nav id="site-navigation" class="main-navigation" role="navigation">
+						<ul class="onepress-menu">
+							<li id="menu-item-755" class="menu-item menu-item-type-taxonomy menu-item-object-category current-post-ancestor current-menu-parent current-post-parent menu-item-755"><a href="https://crazymaker.com.tw/category/arduino-teaching/">arduino教學</a></li>
+<li id="menu-item-1701" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1701"><a href="https://crazymaker.com.tw/category/%e5%b7%a5%e5%85%b7%e9%a1%9e/">工具類</a></li>
+<li id="menu-item-3402" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-3402"><a href="https://crazymaker.com.tw/category/3d%e5%88%97%e5%8d%b0/">3D列印</a></li>
+<li id="menu-item-30" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-30 sub-li-r"><div class="nav-toggle-subarrow"><i class="fa fa-angle-down"></i></div><a href="https://crazymaker.com.tw/arduino-how-to-use-relay/#">服務項目</a>
+<ul class="sub-menu sub-ul-r" style="right: -15px;">
+	<li id="menu-item-29" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-29"><a href="https://crazymaker.com.tw/about/">關於</a></li>
+	<li id="menu-item-28" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-28"><a href="https://crazymaker.com.tw/contact/">聯繫</a></li>
+</ul>
+</li>
+						</ul>
+					</nav>
+					
+				</div>
+			</div>
+		</header></div>
+		</div>
+	<div id="content" class="site-content" style="height: auto !important;">
+
+		
+		<div id="content-inside" class="container right-sidebar">
+			<div id="primary" class="content-area">
+				<main id="main" class="site-main" role="main">
+
+				
+					<article id="post-1207" class="post-1207 post type-post status-publish format-standard has-post-thumbnail hentry category-arduino-teaching">
+	<header class="entry-header">
+		<h1 class="entry-title">繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西!</h1>        		<div class="entry-meta">
+			<span class="posted-on">發佈日期: <a href="https://crazymaker.com.tw/arduino-how-to-use-relay/" rel="bookmark"><time class="entry-date published" datetime="2021-04-19T23:16:40+08:00">2021-04-19</time><time class="updated hide" datetime="2021-08-19T21:50:03+08:00">2021-08-19</time></a></span><span class="byline"> 作者: <span class="author vcard"><a rel="author" class="url fn n" href="https://crazymaker.com.tw/author/po-ting/">Derek Wu</a></span></span>		</div>
+        	</header>
+
+            <div class="entry-thumbnail">
+            <img width="800" height="600" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/arduino繼電器精選圖片.jpg" class="attachment-large size-large wp-post-image" alt="arduino繼電器精選圖片" decoding="async" fetchpriority="high">        </div>
+    
+	<div class="entry-content">
+		
+<p class="has-medium-font-size">Arduino輸出電流有限，在需要控制大電流時，就需要使用到繼電器!</p>
+
+
+
+<p class="has-medium-font-size">本篇將使用<strong><span class="has-inline-color has-vivid-red-color">Arduino控制微型水泵</span></strong>當作範例，之後可以做澆花系統等等應用</p>
+
+
+
+<p class="has-medium-font-size">就讓我們繼續看下去吧!</p>
+
+
+
+<div id="ez-toc-container" class="ez-toc-v2_0_69_1 ez-toc-wrap-left counter-hierarchy ez-toc-counter ez-toc-grey ez-toc-container-direction">
+<p class="ez-toc-title">內容目錄</p>
+<label for="ez-toc-cssicon-toggle-item-684fb2c1ba5a7" class="ez-toc-cssicon-toggle-label"><span class=""><span class="eztoc-hide" style="display:none;">Toggle</span><span class="ez-toc-icon-toggle-span"><svg style="fill: #999;color:#999" xmlns="http://www.w3.org/2000/svg" class="list-377408" width="20px" height="20px" viewBox="0 0 24 24" fill="none"><path d="M6 6H4v2h2V6zm14 0H8v2h12V6zM4 11h2v2H4v-2zm16 0H8v2h12v-2zM4 16h2v2H4v-2zm16 0H8v2h12v-2z" fill="currentColor"></path></svg><svg style="fill: #999;color:#999" class="arrow-unsorted-368013" xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" version="1.2" baseProfile="tiny"><path d="M18.2 9.3l-6.2-6.3-6.2 6.3c-.2.2-.3.4-.3.7s.1.5.3.7c.2.2.4.3.7.3h11c.3 0 .5-.1.7-.3.2-.2.3-.5.3-.7s-.1-.5-.3-.7zM5.8 14.7l6.2 6.3 6.2-6.3c.2-.2.3-.5.3-.7s-.1-.5-.3-.7c-.2-.2-.4-.3-.7-.3h-11c-.3 0-.5.1-.7.3-.2.2-.3.5-.3.7s.1.5.3.7z"></path></svg></span></span></label><input type="checkbox" id="ez-toc-cssicon-toggle-item-684fb2c1ba5a7" aria-label="Toggle"><nav><ul class="ez-toc-list ez-toc-list-level-1 "><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-1" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E6%9D%90%E6%96%99" title="材料">材料</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-2" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E7%B9%BC%E9%9B%BB%E5%99%A8%E4%BB%8B%E7%B4%B9" title="繼電器介紹">繼電器介紹</a><ul class="ez-toc-list-level-3"><li class="ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-3" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E5%9F%BA%E6%9C%AC%E6%A7%8B%E9%80%A0" title="基本構造">基本構造</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-4" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E7%82%BA%E4%BD%95%E8%A6%81%E4%BD%BF%E7%94%A8%E7%B9%BC%E9%9B%BB%E5%99%A8" title="為何要使用繼電器?">為何要使用繼電器?</a></li><li class="ez-toc-page-1 ez-toc-heading-level-3"><a class="ez-toc-link ez-toc-heading-5" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E7%B9%BC%E9%9B%BB%E5%99%A8%E8%A6%8F%E6%A0%BC" title="繼電器規格?">繼電器規格?</a></li></ul></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-6" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#%E9%9B%BB%E8%B7%AF%E9%80%A3%E6%8E%A5" title="電路連接">電路連接</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-7" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#Arduino%E7%A8%8B%E5%BC%8F" title="Arduino程式">Arduino程式</a></li><li class="ez-toc-page-1 ez-toc-heading-level-2"><a class="ez-toc-link ez-toc-heading-8" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#Arduino%E6%8E%A7%E5%88%B6%E5%BE%AE%E5%9E%8B%E6%B0%B4%E6%B3%B5%E5%BD%B1%E7%89%87" title="Arduino控制微型水泵影片">Arduino控制微型水泵影片</a></li></ul></nav></div>
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="%E6%9D%90%E6%96%99"></span>材料<span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img decoding="async" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/材料-1024x577.jpg" alt="" class="wp-image-1211" width="723" height="407" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-1024x577.jpg 1024w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-300x169.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-768x433.jpg 768w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-1536x866.jpg 1536w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-2048x1154.jpg 2048w" sizes="(max-width: 723px) 100vw, 723px"></figure>
+
+
+
+<figure class="wp-block-table is-style-stripes"><table class="has-fixed-layout"><thead><tr><th class="has-text-align-center" data-align="center">材料名稱</th><th class="has-text-align-center" data-align="center">蝦皮連結</th></tr></thead><tbody><tr><td class="has-text-align-center" data-align="center">【樂意創客官方店】《附發票》《送USB傳輸線》Arduino UNO R3 開發板</td><td class="has-text-align-center" data-align="center"><div class="wp-block-buttons is-content-justification-center"> <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-fill"><a class="ek-link wp-block-button__link has-vivid-cyan-blue-to-vivid-purple-gradient-background has-background" href="https://shp.ee/z6ca3de" target="_blank" rel="noreferrer noopener">查看價格</a></div> </div></td></tr><tr><td class="has-text-align-center" data-align="center">【樂意創客官方店】《附發票》一路10A 繼電器 Relay模塊 5V/12V一路繼電器模組擴展板支持低電平觸發</td><td class="has-text-align-center" data-align="center"><div class="wp-block-buttons is-content-justification-center"> <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-fill"><a class="ek-link wp-block-button__link has-vivid-cyan-blue-to-vivid-purple-gradient-background has-background" href="https://shp.ee/fjj3wym" target="_blank" rel="noreferrer noopener">查看價格</a></div> </div></td></tr><tr><td class="has-text-align-center" data-align="center">【樂意創客官方店】《附發票》3號 AA 4節6V電池盒 附引線、蓋、開關 DIY 1.5Vx4顆</td><td class="has-text-align-center" data-align="center"><div class="wp-block-buttons is-content-justification-center"> <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-fill"><a class="ek-link wp-block-button__link has-vivid-cyan-blue-to-vivid-purple-gradient-background has-background" href="https://shp.ee/rpzup2a" target="_blank" rel="noreferrer noopener">查看價格</a></div> </div></td></tr><tr><td class="has-text-align-center" data-align="center">【樂意創客官方店】《已含稅、附發票》迷你微型水泵、直流抽水馬達 DC3V~6V 另賣水管</td><td class="has-text-align-center" data-align="center"><div class="wp-block-buttons is-content-justification-center"> <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-fill"><a class="ek-link wp-block-button__link has-vivid-cyan-blue-to-vivid-purple-gradient-background has-background" href="https://shp.ee/pst677e" target="_blank" rel="noreferrer noopener">查看價格</a></div> </div></td></tr><tr><td class="has-text-align-center" data-align="center">【樂意創客官方店】杜邦線 長30cm 20cm 10cm 1P-1P雙頭 10條一組</td><td class="has-text-align-center" data-align="center"><div class="wp-block-buttons is-content-justification-center"> <div class="wp-block-button has-custom-width wp-block-button__width-50 is-style-fill"><a class="ek-link wp-block-button__link has-vivid-cyan-blue-to-vivid-purple-gradient-background has-background" href="https://shp.ee/ptxbz6e" target="_blank" rel="noreferrer noopener">查看價格</a></div> </div></td></tr></tbody></table></figure>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="%E7%B9%BC%E9%9B%BB%E5%99%A8%E4%BB%8B%E7%B4%B9"></span>繼電器介紹<span class="ez-toc-section-end"></span></h2>
+
+
+
+<h3 class="wp-block-heading" style="font-size:25px"><span class="ez-toc-section" id="%E5%9F%BA%E6%9C%AC%E6%A7%8B%E9%80%A0"></span>基本構造<span class="ez-toc-section-end"></span></h3>
+
+
+
+<p></p>
+
+
+
+<figure class="wp-block-image is-resized"><img decoding="async" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/Relay_inside-2.jpg" alt="" class="wp-image-1242" width="625" height="284" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/Relay_inside-2.jpg 961w, https://crazymaker.com.tw/wp-content/uploads/2021/04/Relay_inside-2-300x137.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/Relay_inside-2-768x350.jpg 768w" sizes="(max-width: 625px) 100vw, 625px"><figcaption>圖片來源: <a href="https://zh.wikipedia.org/wiki/%E7%BB%A7%E7%94%B5%E5%99%A8" target="_blank" rel="noreferrer noopener">維基百科</a></figcaption></figure>
+
+
+
+<p class="has-medium-font-size">繼電器構造其實很簡單，透過電磁線圈產生的磁場來吸引金屬可動電樞，讓被控制的迴路切換。</p>
+
+
+
+<p class="has-medium-font-size">NO(normal open): 常開</p>
+
+
+
+<p class="has-medium-font-size">NC(normal close): 常閉</p>
+
+
+
+<p class="has-medium-font-size">COM(Common Ground):共接點(公共端)</p>
+
+
+
+<hr class="wp-block-separator is-style-wide">
+
+
+
+<h3 class="wp-block-heading" style="font-size:25px"><span class="ez-toc-section" id="%E7%82%BA%E4%BD%95%E8%A6%81%E4%BD%BF%E7%94%A8%E7%B9%BC%E9%9B%BB%E5%99%A8"></span>為何要使用繼電器?<span class="ez-toc-section-end"></span></h3>
+
+
+
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top" style="grid-template-columns:auto 30%"><figure class="wp-block-media-text__media"><img loading="lazy" decoding="async" width="837" height="540" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/繼電器.jpg" alt="" class="wp-image-1216 size-full" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器.jpg 837w, https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器-300x194.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器-768x495.jpg 768w" sizes="(max-width: 837px) 100vw, 837px"></figure><div class="wp-block-media-text__content">
+<p class="has-medium-font-size">假如我今天想要用arduino直接供電給微型水泵，下表示為Arduino輸出規格與微型水泵規格比較。</p>
+
+
+
+<figure class="wp-block-table is-style-regular"><table class="has-fixed-layout"><thead><tr><th>Arduino</th><th>微型水泵工作規格</th></tr></thead><tbody><tr><td>輸出最大電壓5V</td><td>額定電壓 ：DC3V或4.5V (3-6V均可以工作)</td></tr><tr><td>輸出最大電流<span class="has-inline-color has-vivid-red-color"><strong>0.04A(40mA)</strong></span></td><td>負荷時額定電流 : <span class="has-inline-color has-vivid-red-color"><strong>0.18A(180mA)</strong></span></td></tr></tbody></table></figure>
+
+
+
+<p class="has-medium-font-size">我們可以發現，<strong><span class="has-inline-color has-vivid-red-color">Arduino無法提供給水泵需要的工作電流</span></strong>，因此需要透過其他電源來推動水泵。</p>
+
+
+
+<p class="has-medium-font-size">這時候就需要繼電器啦，Arduino提供輸出給電磁線圈，線圈激磁，讓另一邊迴路導通，使額外的電源可以供給水泵，使水泵開始運轉。</p>
+</div></div>
+
+
+
+<hr class="wp-block-separator is-style-wide">
+
+
+
+<h3 class="has-large-font-size wp-block-heading"><span class="ez-toc-section" id="%E7%B9%BC%E9%9B%BB%E5%99%A8%E8%A6%8F%E6%A0%BC"></span>繼電器規格?<span class="ez-toc-section-end"></span></h3>
+
+
+
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-top" style="grid-template-columns:auto 45%"><figure class="wp-block-media-text__media"><img loading="lazy" decoding="async" width="841" height="606" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/繼電器規格.jpg" alt="" class="wp-image-1254 size-full" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器規格.jpg 841w, https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器規格-300x216.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/繼電器規格-768x553.jpg 768w" sizes="(max-width: 841px) 100vw, 841px"></figure><div class="wp-block-media-text__content">
+<p class="has-medium-font-size">在選擇繼電器上要注意以下兩點:</p>
+
+
+
+<p class="has-medium-font-size"><strong><span class="has-inline-color has-vivid-red-color">線圈驅動電壓規格</span></strong>: Arduino輸出為5V，因此選用5V驅動電壓。</p>
+
+
+
+<p class="has-medium-font-size"><strong><span class="has-inline-color has-vivid-red-color">負載側電壓電流規格</span></strong>: 為最大可承受之電流及電壓。</p>
+
+
+
+<p>參考資料:<a href="https://makerpro.cc/2019/10/the-specification-and-activation-of-relay/" class="ek-link">【Maker電子學】淺談繼電器規格與驅動</a></p>
+</div></div>
+
+
+
+<p></p>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="%E9%9B%BB%E8%B7%AF%E9%80%A3%E6%8E%A5"></span>電路連接<span class="ez-toc-section-end"></span></h2>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img loading="lazy" decoding="async" width="1024" height="377" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/Arduino繼電器控制電路圖-1-1024x377.jpg" alt="" class="wp-image-1280" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/Arduino繼電器控制電路圖-1-1024x377.jpg 1024w, https://crazymaker.com.tw/wp-content/uploads/2021/04/Arduino繼電器控制電路圖-1-300x110.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/Arduino繼電器控制電路圖-1-768x283.jpg 768w, https://crazymaker.com.tw/wp-content/uploads/2021/04/Arduino繼電器控制電路圖-1.jpg 1190w" sizes="(max-width: 1024px) 100vw, 1024px"></figure></div>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img loading="lazy" decoding="async" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/材料-1024x577.jpg" alt="" class="wp-image-1211" width="839" height="472" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-1024x577.jpg 1024w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-300x169.jpg 300w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-768x433.jpg 768w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-1536x866.jpg 1536w, https://crazymaker.com.tw/wp-content/uploads/2021/04/材料-2048x1154.jpg 2048w" sizes="(max-width: 839px) 100vw, 839px"></figure>
+
+
+
+<p class="has-medium-font-size">在本範例使用的繼電器是<strong><span class="has-inline-color has-vivid-red-color">低電平觸發</span></strong>，</p>
+
+
+
+<p class="has-medium-font-size">也就是當Arduino輸出<strong><span class="has-inline-color has-vivid-red-color">LOW</span></strong>時繼電器就會<span class="has-inline-color has-black-color">觸發</span><strong><span class="has-inline-color has-vivid-red-color">線圈激磁</span></strong>，</p>
+
+
+
+<p class="has-medium-font-size">反之輸出<strong><span class="has-inline-color has-vivid-red-color">HIGH</span></strong>時繼電器將<strong><span class="has-inline-color has-vivid-red-color">不會激磁</span></strong>。</p>
+
+
+
+<div style="height:29px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-medium-font-size">延伸閱讀: <a href="https://crazymaker.com.tw/how-to-use-multimeter/" class="ek-link">三用電錶使用教學，檢查電路必備工具!!</a></p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Arduino%E7%A8%8B%E5%BC%8F"></span>Arduino程式<span class="ez-toc-section-end"></span></h2>
+
+
+
+<p class="has-medium-font-size">這裡我使用序列埠來作控制，以’1’為判斷條件，</p>
+
+
+
+<p class="has-medium-font-size">輸入’1’時，啟動水泵，</p>
+
+
+
+<p class="has-medium-font-size">輸入不是’1’時，關閉水泵。</p>
+
+
+
+<pre class="wp-block-code prettyprinted" style=""><code class=" prettyprinted" style=""><span class="kwd"><span class="kwd">char</span></span><span class="pln"><span class="pln"> </span></span><span class="typ"><span class="typ">Num</span></span><span class="pun"><span class="pun">;</span></span><span class="pln"><span class="pln"> 
+</span></span><span class="kwd"><span class="kwd">void</span></span><span class="pln"><span class="pln"> setup</span></span><span class="pun"><span class="pun">()</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln">
+ pinMode</span></span><span class="pun"><span class="pun">(</span></span><span class="lit"><span class="lit">8</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln">OUTPUT</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln">
+ </span></span><span class="typ"><span class="typ">Serial</span></span><span class="pun"><span class="pun">.</span></span><span class="kwd"><span class="kwd">begin</span></span><span class="pun"><span class="pun">(</span></span><span class="lit"><span class="lit">9600</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln">
+</span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln">
+
+</span></span><span class="kwd"><span class="kwd">void</span></span><span class="pln"><span class="pln"> loop</span></span><span class="pun"><span class="pun">()</span></span><span class="pln"><span class="pln"> </span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln">
+  </span></span><span class="com"><span class="com">//讀取序列埠傳入的字元</span></span><span class="pln"><span class="pln">
+  </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">Serial</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">available</span></span><span class="pun"><span class="pun">()){</span></span><span class="pln"><span class="pln">
+    </span></span><span class="typ"><span class="typ">Num</span></span><span class="pun"><span class="pun">=</span></span><span class="typ"><span class="typ">Serial</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">read</span></span><span class="pun"><span class="pun">();</span></span><span class="pln"><span class="pln">
+    </span></span><span class="typ"><span class="typ">Serial</span></span><span class="pun"><span class="pun">.</span></span><span class="pln"><span class="pln">println</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">Num</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln">
+  </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln"> 
+  delay</span></span><span class="pun"><span class="pun">(</span></span><span class="lit"><span class="lit">10</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln">
+  </span></span><span class="kwd"><span class="kwd">if</span></span><span class="pun"><span class="pun">(</span></span><span class="typ"><span class="typ">Num</span></span><span class="pun"><span class="pun">==</span></span><span class="str"><span class="str">'1'</span></span><span class="pun"><span class="pun">){</span></span><span class="pln"><span class="pln">
+    digitalWrite</span></span><span class="pun"><span class="pun">(</span></span><span class="lit"><span class="lit">8</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln">LOW</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln"> </span></span><span class="com"><span class="com">//低電平觸發，LOW時繼電器觸發</span></span><span class="pln"><span class="pln">
+  </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln">
+  </span></span><span class="kwd"><span class="kwd">else</span></span><span class="pun"><span class="pun">{</span></span><span class="pln"><span class="pln">
+    digitalWrite</span></span><span class="pun"><span class="pun">(</span></span><span class="lit"><span class="lit">8</span></span><span class="pun"><span class="pun">,</span></span><span class="pln"><span class="pln">HIGH</span></span><span class="pun"><span class="pun">);</span></span><span class="pln"><span class="pln">
+  </span></span><span class="pun"><span class="pun">}</span></span><span class="pln"><span class="pln">
+</span></span><span class="pun"><span class="pun">}</span></span></code></pre>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<p class="has-medium-font-size">其實這裡也可以使用<a href="https://crazymaker.com.tw/arduino-button-control-led/" class="ek-link"><strong><span style="background-color:#fcb900" class="has-inline-background"><span class="has-inline-color has-black-color"><span style="text-decoration: underline;" class="ek-underline">按鈕開關</span></span></span></strong></a>來控制水泵<strong>，</strong></p>
+
+
+
+<p class="has-medium-font-size">但因為我懶得接按鈕，所以直接使用序列埠來控制🤣🤣。</p>
+
+
+
+<div style="height:20px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<h2 class="wp-block-heading"><span class="ez-toc-section" id="Arduino%E6%8E%A7%E5%88%B6%E5%BE%AE%E5%9E%8B%E6%B0%B4%E6%B3%B5%E5%BD%B1%E7%89%87"></span>Arduino控制微型水泵影片<span class="ez-toc-section-end"></span></h2>
+
+
+
+<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio"><div class="wp-block-embed__wrapper">
+<iframe loading="lazy" title="Arduino控制微型水泵(繼電器模組)" width="800" height="450" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/V3daz51JeoE.html" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+</div></figure>
+
+
+
+<div style="height:100px" aria-hidden="true" class="wp-block-spacer"></div>
+
+
+
+<!--JB Tracker--> <script type="text/javascript"> var _paq = _paq || []; (function(){ if(window.apScriptInserted) return; _paq.push(['clientToken', 'P%2bsIjEMd6oQ%3d']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://prod.benchmarkemail.com/tracker.bundle.js'; s.parentNode.insertBefore(g,s); window.apScriptInserted=true;})(); </script> <!--/JB Tracker--> <!-- BEGIN: Benchmark Email Signup Form Code -->
+<script type="text/javascript" id="lbscript1572172" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/lbformnew.js.下載"></script><noscript>Please enable JavaScript <br><div align="center" style="padding-top:5px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;"><a href="https://www.benchmarkemail.com/email-marketing?utm_source=usersignupforms&amp;utm_medium=customers&amp;utm_campaign=usersignupforms" target="_new" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;" rel="noopener">Email Marketing </a> by Benchmark</div></noscript>
+<!-- END: Benchmark Email Signup Form Code -->
+
+
+
+<p></p>
+<!--CusAds0-->
+<div style="font-size: 0px; height: 0px; line-height: 0px; margin: 0; padding: 0; clear: both;"></div>			</div>
+    
+    <footer class="entry-footer"><span class="cat-links">分類: <a href="https://crazymaker.com.tw/category/arduino-teaching/" rel="category tag">arduino教學</a></span></footer>
+    </article>
+
+
+					
+<div id="comments" class="comments-area">
+
+	
+			<h3 class="comments-title">
+			在〈<span>繼電器怎麼用? 它讓Arduino可以控制更多好玩的東西!</span>〉中有 7 則留言		</h3>
+
+		
+		<ol class="comment-list">
+				<li class="comment even thread-even depth-1" id="li-comment-4797">
+		<article id="comment-4797" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/cfb68dc9d63029b993d45f2d07c19bf8.jpg" srcset="https://secure.gravatar.com/avatar/cfb68dc9d63029b993d45f2d07c19bf8?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn">kkk</b> </cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-4797"><time datetime="2022-12-16T04:34:16+08:00">2022-12-16</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-4797" data-commentid="4797" data-postid="1207" data-belowelement="comment-4797" data-respondelement="respond" data-replyto="回覆給「kkk」" aria-label="回覆給「kkk」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>也沒有辦法將1、0 的手動輸入方式變成信號感測的輸入方式呀？</p>
+				</div>
+
+			</div>
+
+		</article>
+				<ul class="children">
+	<li class="comment byuser comment-author-po-ting bypostauthor odd alt depth-2" id="li-comment-4821">
+		<article id="comment-4821" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/e6905584ab9a20df9eb68bd6d7f82039.png" srcset="https://secure.gravatar.com/avatar/e6905584ab9a20df9eb68bd6d7f82039?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn"><a href="https://crazymaker.com.tw/" class="url" rel="ugc">Derek Wu</a></b> <span>文章作者</span></cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-4821"><time datetime="2022-12-17T14:20:19+08:00">2022-12-17</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-4821" data-commentid="4821" data-postid="1207" data-belowelement="comment-4821" data-respondelement="respond" data-replyto="回覆給「Derek Wu」" aria-label="回覆給「Derek Wu」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>可以啊，感測器回傳數值，再設條件式去判斷控制電器的arduino腳位是否要輸出high或low。</p>
+				</div>
+
+			</div>
+
+		</article>
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-odd thread-alt depth-1" id="li-comment-7710">
+		<article id="comment-7710" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/69c55c907c35528be4af71f8bb8c7498.jpg" srcset="https://secure.gravatar.com/avatar/69c55c907c35528be4af71f8bb8c7498?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn">LS</b> </cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-7710"><time datetime="2023-04-04T18:56:33+08:00">2023-04-04</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-7710" data-commentid="7710" data-postid="1207" data-belowelement="comment-7710" data-respondelement="respond" data-replyto="回覆給「LS」" aria-label="回覆給「LS」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>不好意思，請問給繼電器的電壓有限制嗎？範例中是使用一般電池四顆1.5V合計6V，如果我換成充電電池1.2V一樣裝四顆只有4.8V會有什麼樣的差異呢？查了其他資料好像沒有特別提到這部分的要求，不知道是不是沒有差？</p>
+				</div>
+
+			</div>
+
+		</article>
+				<ul class="children">
+	<li class="comment byuser comment-author-po-ting bypostauthor odd alt depth-2" id="li-comment-7846">
+		<article id="comment-7846" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/e6905584ab9a20df9eb68bd6d7f82039.png" srcset="https://secure.gravatar.com/avatar/e6905584ab9a20df9eb68bd6d7f82039?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn"><a href="https://crazymaker.com.tw/" class="url" rel="ugc">Derek Wu</a></b> <span>文章作者</span></cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-7846"><time datetime="2023-04-14T15:04:26+08:00">2023-04-14</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-7846" data-commentid="7846" data-postid="1207" data-belowelement="comment-7846" data-respondelement="respond" data-replyto="回覆給「Derek Wu」" aria-label="回覆給「Derek Wu」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>可以參考負載側電壓電流規格，通常會標示在繼電器上，<br>
+像文章中使用的繼電器規格就是:<br>
+10A 250VAC/30VDC<br>
+12A 123VAC/28VDC<br>
+不要超過這個範圍都可以。</p>
+				</div>
+
+			</div>
+
+		</article>
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+	<li class="comment even thread-even depth-1" id="li-comment-9574">
+		<article id="comment-9574" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/fbbabfcf61d621ac96f733e1e0fecf6f.jpg" srcset="https://secure.gravatar.com/avatar/fbbabfcf61d621ac96f733e1e0fecf6f?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn">張先生</b> </cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-9574"><time datetime="2023-08-28T11:19:12+08:00">2023-08-28</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-9574" data-commentid="9574" data-postid="1207" data-belowelement="comment-9574" data-respondelement="respond" data-replyto="回覆給「張先生」" aria-label="回覆給「張先生」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>請問可否降低水泵的流速</p>
+				</div>
+
+			</div>
+
+		</article>
+				</li><!-- #comment-## -->
+	<li class="comment odd alt thread-odd thread-alt depth-1" id="li-comment-12253">
+		<article id="comment-12253" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/ad9a8202e8c6c402a9ae6b6540f26692.jpg" srcset="https://secure.gravatar.com/avatar/ad9a8202e8c6c402a9ae6b6540f26692?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn">Jhc12456</b> </cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-12253"><time datetime="2024-02-21T16:38:10+08:00">2024-02-21</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-12253" data-commentid="12253" data-postid="1207" data-belowelement="comment-12253" data-respondelement="respond" data-replyto="回覆給「Jhc12456」" aria-label="回覆給「Jhc12456」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>請問一下 我電路都接好的 但還是失敗了QQ 繼電器有亮 再輸入1時 亮了一下就沒反應了</p>
+				</div>
+
+			</div>
+
+		</article>
+				<ul class="children">
+	<li class="comment byuser comment-author-po-ting bypostauthor even depth-2" id="li-comment-12335">
+		<article id="comment-12335" class="comment clearfix">
+
+				<img alt="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/e6905584ab9a20df9eb68bd6d7f82039.png" srcset="https://secure.gravatar.com/avatar/e6905584ab9a20df9eb68bd6d7f82039?s=120&amp;d=mm&amp;r=g 2x" class="avatar avatar-60 photo" height="60" width="60" loading="lazy" decoding="async">
+			<div class="comment-wrapper">
+
+				<header class="comment-meta comment-author vcard">
+					<cite><b class="fn"><a href="https://crazymaker.com.tw/" class="url" rel="ugc">Derek Wu</a></b> <span>文章作者</span></cite><a class="comment-time" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-12335"><time datetime="2024-02-25T20:30:27+08:00">2024-02-25</time></a><a rel="nofollow" class="comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#comment-12335" data-commentid="12335" data-postid="1207" data-belowelement="comment-12335" data-respondelement="respond" data-replyto="回覆給「Derek Wu」" aria-label="回覆給「Derek Wu」">回覆</a>				</header>
+
+					
+				<div class="comment-content entry-content">
+					<p>可以確認看看你的繼電器是不是低電平觸發的。<br>
+如果是高電平觸發要更改程式邏輯。</p>
+				</div>
+
+			</div>
+
+		</article>
+				</li><!-- #comment-## -->
+</ul><!-- .children -->
+</li><!-- #comment-## -->
+		</ol>
+
+		
+	
+	
+		<div id="respond" class="comment-respond">
+		<h3 id="reply-title" class="comment-reply-title">發佈留言 <small><a rel="nofollow" id="cancel-comment-reply-link" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#respond" style="display:none;">取消回覆</a></small></h3><form action="https://crazymaker.com.tw/wp-comments-post.php" method="post" id="commentform" class="comment-form" novalidate=""><p class="comment-notes"><span id="email-notes">發佈留言必須填寫的電子郵件地址不會公開。</span> <span class="required-field-message">必填欄位標示為 <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">留言 <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required=""></textarea></p><p class="comment-form-author"><label for="author">顯示名稱 <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required=""></p>
+<p class="comment-form-email"><label for="email">電子郵件地址 <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required=""></p>
+<p class="comment-form-url"><label for="url">個人網站網址</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url"></p>
+<p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent" name="wp-comment-cookies-consent" type="checkbox" value="yes"> <label for="wp-comment-cookies-consent">在<strong>瀏覽器</strong>中儲存顯示名稱、電子郵件地址及個人網站網址，以供下次發佈留言時使用。</label></p>
+<p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="發佈留言"> <input type="hidden" name="comment_post_ID" value="1207" id="comment_post_ID">
+<input type="hidden" name="comment_parent" id="comment_parent" value="0">
+</p></form>	</div><!-- #respond -->
+	
+</div>
+
+				
+				</main>
+			</div>
+
+                            
+<div id="secondary" class="widget-area sidebar" role="complementary" style="height: auto !important;">
+	<aside id="block-3" class="widget widget_block widget_search"><form role="search" method="get" action="https://crazymaker.com.tw/" class="wp-block-search__button-inside wp-block-search__icon-button aligncenter wp-block-search"><label class="wp-block-search__label screen-reader-text" for="wp-block-search__input-1">搜尋</label><div class="wp-block-search__inside-wrapper " style="width: 666px"><input class="wp-block-search__input" id="wp-block-search__input-1" placeholder="" value="" type="search" name="s" required=""><button aria-label="搜尋" class="wp-block-search__button has-icon wp-element-button" type="submit"><svg class="search-icon" viewBox="0 0 24 24" width="24" height="24">
+					<path d="M13 5c-3.3 0-6 2.7-6 6 0 1.4.5 2.7 1.3 3.7l-3.8 3.8 1.1 1.1 3.8-3.8c1 .8 2.3 1.3 3.7 1.3 3.3 0 6-2.7 6-6S16.3 5 13 5zm0 10.5c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"></path>
+				</svg></button></div></form></aside>
+		<aside id="recent-posts-3" class="widget widget_recent_entries">
+		<h2 class="widget-title">近期文章</h2>
+		<ul>
+											<li>
+					<a href="https://crazymaker.com.tw/arduino-float-and-long-calculation-error/">【Arduino】進行數學運算時，需要注意的小地方</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/arduino-data-types-and-variables/">【Arduino】資料型態與宣告變數</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/how-to-use-serial-communication-in-arduino/">【Arduino】Serial 教學，透過電腦與Arduino互相溝通</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/arduino-program-structure/">【Arduino】 程式架構說明</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/installing-and-getting-started-with-arduino-ide-v2/">Arduino IDE 2.0 安裝與介紹</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/3d-printing-diy-bluetooth-speaker/">【3D列印】自製藍芽小音響</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/my-first-time-painting-a-3d-printed-figure/">【3D列印】模型公仔列印及上色初體驗</a>
+									</li>
+											<li>
+					<a href="https://crazymaker.com.tw/biqu-b1-se-plus-3d-printer-unboxing/">【開箱】BIQU B1 SE PLUS 3D列印機，新手自製肥皂盒。</a>
+									</li>
+					</ul>
+
+		</aside><aside id="block-4" class="widget widget_block"><p><!--JB Tracker--> <script type="text/javascript"> var _paq = _paq || []; (function(){ if(window.apScriptInserted) return; _paq.push(['clientToken', 'P%2bsIjEMd6oQ%3d']); var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript'; g.async=true; g.defer=true; g.src='https://prod.benchmarkemail.com/tracker.bundle.js'; s.parentNode.insertBefore(g,s); window.apScriptInserted=true;})(); </script> <!--/JB Tracker--> <!-- BEGIN: Benchmark Email Signup Form Code --><br>
+<script type="text/javascript" id="lbscript1571201" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/lbformnew(1).js.下載"></script><noscript>Please enable JavaScript </noscript></p>
+<div align="center" style="padding-top:5px;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;"><a href="https://www.benchmarkemail.com/email-marketing?utm_source=usersignupforms&amp;utm_medium=customers&amp;utm_campaign=usersignupforms" target="_new" style="text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:10px;color:#999999;">Email Marketing </a> by Benchmark</div>
+<p><br>
+<!-- END: Benchmark Email Signup Form Code --></p></aside><div class="google-auto-placed" style="width: 100%; height: auto; clear: none; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2649175538865325" data-adsbygoogle-status="done" style="display: block; margin: 10px auto 40px; background-color: transparent; height: 0px;" data-ad-status="unfilled"><div id="aswift_2_host" style="border: none; height: 0px; width: 240px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_2" name="aswift_2" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 240px; height: 0px; min-height: auto; max-height: none; min-width: auto; max-width: none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="240" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/ads.html" data-google-container-id="a!3" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true" data-google-query-id="CIGuuMuh9Y0DFUtFwgUddyEI0A"></iframe></div></ins></div><aside id="block-6" class="widget widget_block widget_media_image">
+<figure class="wp-block-image size-full"><img loading="lazy" decoding="async" width="600" height="608" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/1579751854466.jpg" alt="" class="wp-image-2225" srcset="https://crazymaker.com.tw/wp-content/uploads/2021/09/1579751854466.jpg 600w, https://crazymaker.com.tw/wp-content/uploads/2021/09/1579751854466-296x300.jpg 296w" sizes="(max-width: 600px) 100vw, 600px"></figure>
+</aside><aside style="position: static; margin-bottom: 40px; transition: all; transform: none; margin-top: 0px; padding: 0px; width: 240.2px; top: auto; display: none; height: 68px;"></aside><aside id="block-7" class="widget widget_block widget_text FixedWidget__fixed_widget">
+<p class="has-medium-font-size">覺得讚就點擊廣告，支持一下瘋狂創客吧<img decoding="async" draggable="false" role="img" class="emoji" alt="😍" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/1f60d.svg"></p>
+</aside><aside id="custom_html-3" class="widget_text widget widget_custom_html"><div class="textwidget custom-html-widget"><script async="" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/f(9).txt"></script>
+<!-- 廣告2 -->
+<ins class="adsbygoogle" style="display: block; height: 0px;" data-ad-client="ca-pub-2649175538865325" data-ad-slot="6196062823" data-ad-format="auto" data-full-width-responsive="true" data-adsbygoogle-status="done" data-ad-status="unfilled"><div id="aswift_1_host" style="border: none; height: 0px; width: 240px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block; overflow: hidden; opacity: 0;"><iframe id="aswift_1" name="aswift_1" browsingtopics="true" style="left: 0px; position: absolute; top: 0px; border: 0px; width: 240px; height: 0px; min-height: auto; max-height: none; min-width: auto; max-width: none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="240" height="0" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/ads(1).html" data-google-container-id="a!2" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true" data-google-query-id="CK7-kcuh9Y0DFedZwgUd97gl8A"></iframe></div></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div></aside></div>
+            
+		</div>
+	</div>
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+				
+		<div class="site-info">
+			<div class="container">
+									<div class="btt">
+						<a class="back-to-top" href="https://crazymaker.com.tw/arduino-how-to-use-relay/#page" title="返回頂端"><i class="fa fa-angle-double-up wow flash" data-wow-duration="2s" style="visibility: hidden; animation-duration: 2s; animation-name: none;"></i></a>
+					</div>
+										《瘋狂創客》版權所有 © 2025		<span class="sep"> – </span>
+		佈景主題採用 FameThemes 所設計的 <a href="https://www.famethemes.com/themes/onepress">OnePress</a>					</div>
+		</div>
+
+	</footer>
+	</div><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/ads(2).html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins>
+
+
+<script type="text/javascript" id="code-prettify-js-before">
+/* <![CDATA[ */
+var codePrettifyLoaderBaseUrl = "https:\/\/crazymaker.com.tw\/wp-content\/plugins\/code-prettify\/prettify";
+/* ]]> */
+</script>
+
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/wp-polyfill-inert.min.js.下載" id="wp-polyfill-inert-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/regenerator-runtime.min.js.下載" id="regenerator-runtime-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/wp-polyfill.min.js.下載" id="wp-polyfill-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/hooks.min.js.下載" id="wp-hooks-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/i18n.min.js.下載" id="wp-i18n-js"></script>
+<script type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/index.js.下載" id="swv-js"></script>
+<script type="text/javascript" id="contact-form-7-js-extra">
+/* <![CDATA[ */
+var wpcf7 = {"api":{"root":"https:\/\/crazymaker.com.tw\/wp-json\/","namespace":"contact-form-7\/v1"}};
+/* ]]> */
+</script>
+<script type="text/javascript" id="contact-form-7-js-translations">
+/* <![CDATA[ */
+( function( domain, translations ) {
+	var localeData = translations.locale_data[ domain ] || translations.locale_data.messages;
+	localeData[""].domain = domain;
+	wp.i18n.setLocaleData( localeData, domain );
+} )( "contact-form-7", {"translation-revision-date":"2024-07-22 09:54:23+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=1; plural=0;","lang":"zh_TW"},"This contact form is placed in the wrong place.":["\u9019\u4efd\u806f\u7d61\u8868\u55ae\u653e\u5728\u932f\u8aa4\u7684\u4f4d\u7f6e\u3002"],"Error:":["\u932f\u8aa4:"]}},"comment":{"reference":"includes\/js\/index.js"}} );
+/* ]]> */
+</script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/index(1).js.下載" id="contact-form-7-js"></script>
+<script type="text/javascript" id="onepress-theme-js-extra">
+/* <![CDATA[ */
+var onepress_js_settings = {"onepress_disable_animation":"","onepress_disable_sticky_header":"0","onepress_vertical_align_menu":"0","hero_animation":"flipInX","hero_speed":"5000","hero_fade":"750","submenu_width":"0","hero_duration":"5000","hero_disable_preload":"","disabled_google_font":"","is_home":"","gallery_enable":"1","is_rtl":"","parallax_speed":"0.5"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/theme-all.min.js.下載" id="onepress-theme-js"></script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/comment-reply.min.js.下載" id="comment-reply-js" async="async" data-wp-strategy="async"></script>
+<script type="text/javascript" id="q2w3_fixed_widget-js-extra">
+/* <![CDATA[ */
+var q2w3_sidebar_options = [{"use_sticky_position":false,"margin_top":0,"margin_bottom":0,"stop_elements_selectors":"","screen_max_width":0,"screen_max_height":0,"widgets":[]}];
+/* ]]> */
+</script>
+<script type="text/javascript" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/frontend.min.js.下載" id="q2w3_fixed_widget-js"></script>
+
+
+
+<iframe name="googlefcPresent" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/saved_resource(5).html"></iframe><div class="google-auto-placed" style="width: 100%; height: auto; clear: both; text-align: center;"><ins data-ad-format="auto" class="adsbygoogle adsbygoogle-noablate" data-ad-client="ca-pub-2649175538865325" data-adsbygoogle-status="done" style="display: block; margin: 10px auto; background-color: transparent; height: 280px;"><div id="aswift_3_host" style="border: none; height: 280px; width: 1200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins></div><iframe src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/aframe.html" width="0" height="0" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-side-rail-status="idle" style="display: none !important; z-index: 2147483647 !important;" data-ad-status="filled"><div id="aswift_5_host" style="border: none; height: 320px; width: 180px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_5" name="aswift_5" browsingtopics="true" style="width:180px !IMPORTANT;height:320px !IMPORTANT;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="180" height="320" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/zrt_lookup_fy2021.html" data-google-container-id="a!6" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COCah8uh9Y0DFePwTAIdK_0rWQ" data-load-complete="true"></iframe></div><span class="left-side-rail-edge" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 0px !important; top: 320px !important; width: 180px !important; height: 5px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"></span><span class="left-side-rail-dismiss-btn" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 65px !important; right: 65px !important; top: 325px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"><svg style="position: absolute !important; top: 0px !important; display: block !important; width: 50px !important; height: 30px !important; margin-top: -5px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="left-side-rail-drop-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M5,5 L5,17 A8,8 0 0,0 13,25 L37,25 A8,8 0 0,0 45,17 L45,5 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#left-side-rail-drop-shadow&quot;);"></path><rect x="0" y="0" width="50" height="5" style="fill: rgb(250, 250, 250);"></rect><g stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="18" y1="18" x2="25" y2="12"></line><line x1="25" y1="12" x2="32" y2="18"></line></g></svg></span></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" data-side-rail-status="idle" style="display: none !important; z-index: 2147483647 !important;" data-ad-status="filled"><div id="aswift_6_host" style="border: none; height: 355px; width: 200px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_6" name="aswift_6" browsingtopics="true" style="width:200px !IMPORTANT;height:355px !IMPORTANT;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="200" height="355" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/zrt_lookup_fy2021(1).html" data-google-container-id="a!7" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COGah8uh9Y0DFePwTAIdK_0rWQ" data-load-complete="true"></iframe></div><span class="right-side-rail-edge" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 0px !important; top: 355px !important; width: 200px !important; height: 5px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"></span><span class="right-side-rail-dismiss-btn" style="background: rgb(250, 250, 250) !important; position: absolute !important; left: 75px !important; right: 75px !important; top: 360px !important; box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 5px -1px, rgba(0, 0, 0, 0.1) 0px -1px 2px -1px !important;"><svg style="position: absolute !important; top: 0px !important; display: block !important; width: 50px !important; height: 30px !important; margin-top: -5px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="right-side-rail-drop-shadow" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M5,5 L5,17 A8,8 0 0,0 13,25 L37,25 A8,8 0 0,0 45,17 L45,5 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#right-side-rail-drop-shadow&quot;);"></path><rect x="0" y="0" width="50" height="5" style="fill: rgb(250, 250, 250);"></rect><g stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="18" y1="18" x2="25" y2="12"></line><line x1="25" y1="12" x2="32" y2="18"></line></g></svg></span></ins><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: block; width: 100% !important; height: 129px !important; bottom: -124px; clear: none !important; float: none !important; left: 0px; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1; overflow: visible !important; padding: 0px !important; position: fixed; right: auto !important; top: auto !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647; background: rgb(250, 250, 250) !important;" data-anchor-status="dismissed" data-ad-status="filled" data-anchor-shown="true"><div class="grippy-host"><template shadowrootmode="closed"><ins class="ee" style="inset: auto !important; clear: none !important; display: block !important; float: none !important; height: 5px !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: relative !important; vertical-align: baseline !important; visibility: visible !important; width: auto !important; z-index: 1 !important; background-color: rgb(250, 250, 250) !important; box-shadow: rgba(0, 0, 0, 0.2) 0px -1px 5px -1px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px !important;"><span style="display: block !important; width: 80px !important; height: 45px !important; bottom: 0px !important; left: 0% !important; pointer-events: none !important;"><svg style="margin: 0px !important; position: absolute !important; bottom: 0px !important; left: 0% !important; display: block !important; width: 80px !important; height: 30px !important; transform: none !important; pointer-events: initial !important;"><defs><filter id="dropShadowTop" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><fecomponenttransfer in="SourceAlpha" result="TransferredAlpha"><fefuncr type="discrete" tableValues="0.5"></fefuncr><fefuncg type="discrete" tableValues="0.5"></fefuncg><fefuncb type="discrete" tableValues="0.5"></fefuncb></fecomponenttransfer><fegaussianblur in="TransferredAlpha" stdDeviation="2"></fegaussianblur><feoffset dx="0" dy="0" result="offsetblur"></feoffset><femerge><femergenode></femergenode><femergenode in="SourceGraphic"></femergenode></femerge></filter></defs><path d="M0,26 L0,6 A6,6 0 0,1 6,1 L50,1 A6,6 0 0,1 56,6 L56,20 A6,6 0 0,0 62,26 Z" stroke="#FAFAFA" stroke-width="1" fill="#FAFAFA" style="filter: url(&quot;#dropShadowTop&quot;);"></path><rect x="0" y="25" width="80" height="5" style="fill: rgb(250, 250, 250);"></rect><g class="down" stroke="#616161" stroke-width="2px" stroke-linecap="square"><line x1="22" y1="18" x2="28" y2="12"></line><line x1="28" y1="12" x2="34" y2="18"></line></g></svg></span></ins></template></div><div id="aswift_7_host" style="border: none !important; height: 124px !important; width: 100% !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_7" name="aswift_7" browsingtopics="true" style="min-height: auto; max-height: none; min-width: auto; max-width: none; width: 1005px !important; height: 124px !important; display: block; margin: 0px auto;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="1005" height="124" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/zrt_lookup_fy2021(2).html" data-google-container-id="a!8" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="COKah8uh9Y0DFePwTAIdK_0rWQ" data-load-complete="true"></iframe></div></ins><iframe name="__tcfapiLocator" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/saved_resource(6).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcInactive" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/saved_resource(7).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe><iframe name="googlefcLoaded" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/saved_resource(8).html" style="display: none; width: 0px; height: 0px; border: none; z-index: -1000; left: -1000px; top: -1000px;"></iframe></body><iframe id="google_esf" name="google_esf" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/zrt_lookup_fy2021(3).html" style="display: none;"></iframe><ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; clear: none !important; float: none !important; margin: 0px !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; position: fixed !important; vertical-align: baseline !important; visibility: visible !important; z-index: 2147483647 !important; background: transparent !important;" aria-hidden="true" data-ad-status="filled" data-vignette-loaded="true"><div id="aswift_4_host" style="border: none !important; height: 100vh !important; width: 100vw !important; margin: 0px !important; padding: 0px !important; position: relative !important; visibility: visible !important; background-color: transparent !important; display: inline-block !important; inset: auto !important; clear: none !important; float: none !important; max-height: none !important; max-width: none !important; opacity: 1 !important; overflow: visible !important; vertical-align: baseline !important; z-index: auto !important;"><iframe id="aswift_4" name="aswift_4" browsingtopics="true" style="min-height: auto !important; max-height: none !important; min-width: auto !important; max-width: none !important; width: 100vw !important; height: 100vh !important; inset: 0px auto auto 0px !important; position: absolute !important; clear: none !important; display: inline !important; float: none !important; margin: 0px !important; opacity: 1 !important; overflow: visible !important; padding: 0px !important; vertical-align: baseline !important; visibility: visible !important; z-index: auto !important;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" width="" height="" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./繼電器怎麼用_ 它讓Arduino可以控制更多好玩的東西! _ 瘋狂創客_files/zrt_lookup_fy2021(4).html" data-google-container-id="a!5" tabindex="0" title="Advertisement" aria-label="Advertisement" data-google-query-id="CNuah8uh9Y0DFePwTAIdK_0rWQ" data-load-complete="true"></iframe></div></ins></html>
